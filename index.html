@@ -10,16 +10,18 @@
         <title>Weather Dashboard</title>
     </head>
     <body>
-        <div class="jumbotron bg-secondary">
-            <h1>Weather Dashboard</h1>
-        </div>
-        <div class="container-fluid">
 
+        <header class="jumbotron bg-secondary">
+            <h1>Weather Dashboard</h1>
+        </header>
+
+        <main class="container-fluid">
             <div class="row">
-                <div class="col-lg-3 p-3 m-2 ml-4">
+
+                <section class="col-lg-3 p-3 m-2 ml-4">
                     <h5>Search for a City:</h5>
-                    <form class="form-inline ">
-                        <input class="form-control" type="text" placeholder="Search"></input>
+                    <form class="form-inline">
+                        <input class="form-control" type="text" placeholder="Search">
                         <button class="btn btn-secondary" type="submit" id="searchBtn">
                             <i class="fa fa-search"></i>
                         </button>
@@ -28,91 +30,99 @@
                     <table class="table table-fluid pt-2">
                         <tbody>
                             <tr>
-                                <th scope="row" id="portland">
+                                <th scope="row">
                                     <button class="btn btn-link">Portland, OR</button>
                                 </th>
                             </tr>
                             <tr>
-                                <th scope="row" id="kansas-city">
-                                    <button class="btn btn-link">Kansas City, MO</button></th>
+                                <th scope="row">
+                                    <button class="btn btn-link">Kansas City, MO</button>
+                                </th>
                             </tr>
                             <tr>
-                                <th scope="row" id="seattle">
-                                    <button class="btn btn-link">Seattle, WA</button></th>
+                                <th scope="row">
+                                    <button class="btn btn-link">Seattle, WA</button>
+                                </th>
                             </tr>
                             <tr>
-                                <th scope="row" id="austin">
-                                    <button class="btn btn-link">Austin, TX</button></th>
+                                <th scope="row">
+                                    <button class="btn btn-link">Austin, TX</button>
+                                </th>
                             </tr>
                             <tr>
-                                <th scope="row" id="orlando">
-                                    <button class="btn btn-link">Orlando, FL</button></th>
+                                <th scope="row">
+                                    <button class="btn btn-link">Orlando, FL</button>
+                                </th>
                             </tr>
                             <tr>
-                                <th scope="row" id="chicago">
-                                    <button class="btn btn-link">Chicago, IL</button></th>
+                                <th scope="row">
+                                    <button class="btn btn-link">Chicago, IL</button>
+                                </th>
                             </tr>
                         </tbody>
                     </table>
-                </div>
+                </section>
 
-                <div class="col-lg-8 p-3 m-2">
-                    <h3>Today's Weather</h3>
-                    <h5 class="city"></h5>
-                    <h5 class="dateToday"></h5>
-                    <img class="icon">
-                    <p class="tempToday"></p>
-                    <p class="humidityToday"></p>
-                    <p class="windToday"></p>
-                    <p class="UVToday"></p>
-                </div>
 
-                <div class="row">
+                <section class="col-lg-8">
                     <div class="container-fluid">
-                        <div class="col-lg-11 p-3 pl-4 m-2">
-                            <h3>5 Day Forecast</h3>
+                        <div class="row p-2">
+                            <div id="today">
+                                <h2 class="city p-2">Placeholder</h2>
+                                <h5 class="dateToday p-2"></h5>
+                                <img class="icon">
+                                <p class="tempToday"></p>
+                                <p class="humidityToday"></p>
+                                <p class="windToday"></p>
+                                <p class="UVToday"></p>
+                            </div>
+                        </div>
+                    </div>
 
-                            <div class="row">
+                    <div class="container-fluid"> 
+                        <div class="row p-2">
+                            <h3>5 Day Forecast</h3>
+                            <div class="row p-1">
                                 <div class="card p-1 m-3">
                                     <p class="card-title" id="day1"></p>
                                     <img class="card-subtitle" id="icon1">
-                                    <p class="card-text" id="temp1"><p>
-                                    <p class="card-text" id="humidity1"><p>
+                                    <p class="card-text" id="temp1"></p>
+                                    <p class="card-text" id="humidity1"></p>
                                 </div>
                                 <div class="card p-1 m-3">
                                     <p class="card-title" id="day2"></p>
                                     <img class="card-subtitle" id="icon2">
-                                    <p class="card-text" id="temp2"><p>
-                                    <p class="card-text" id="humidity2"><p>
+                                    <p class="card-text" id="temp2"></p>
+                                    <p class="card-text" id="humidity2"></p>
                                 </div>
                                 <div class="card p-1 m-3">
                                     <p class="card-title" id="day3"></p>
                                     <img class="card-subtitle" id="icon3">
-                                    <p class="card-text" id="temp3"><p>
-                                    <p class="card-text" id="humidity3"><p>
+                                    <p class="card-text" id="temp3"></p>
+                                    <p class="card-text" id="humidity3"></p>
                                 </div>
                                 <div class="card p-1 m-3">
                                     <p class="card-title" id="day4"></p>
                                     <img class="card-subtitle" id="icon4">
-                                    <p class="card-text" id="temp4"><p>
-                                    <p class="card-text" id="humidity4"><p>
+                                    <p class="card-text" id="temp4"></p>
+                                    <p class="card-text" id="humidity4"></p>
                                 </div>
                                 <div class="card p-1 m-3">
                                     <p class="card-title" id="day5"></p>
                                     <img class="card-subtitle" id="icon5">
-                                    <p class="card-text" id="temp5"><p>
-                                    <p class="card-text" id="humidity5"><p>
+                                    <p class="card-text" id="temp5"></p>
+                                    <p class="card-text" id="humidity5"></p>
                                 </div>
-
                             </div>
-                        </div>
-                    </div>    
-                </div>
+                        </div> 
+                    </div> 
+                </section>
+
             </div>
-        </div>
+        </main>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.4.1.js"integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
         <script src="script.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
