@@ -6,21 +6,9 @@
 // city in search history is clicked, presented current and future conditions
 // open weather dashbard, presented with last searched city forecast
 
-// --------------------- //
-
-// weather condition list.weather.main
-// city name: city.name
-// temperature: list.main.temp (use imperial unit)
-// humidity: list.main.humidity
-// wind speed: list.wind.speed (use imperial unit)
-// UV index: 
-// condition icon: list.weather.icon
-
-// forecast.windSpeed
-// forecast.temperature.value
-// forecast.humidity.unit
 
 // --------------------- //
+
 
 // API key
 let apiKey = "2c6b4fcf87fab7effe688f8694416801";
@@ -40,7 +28,21 @@ let cities = ["Portland", "Kansas City", "Seattle", "Austin", "Orlando", "Chicag
 // search for city
 let citySearch = $(".form-control").val().trim(); // form-control = search
 
-console.log(queryURL)
+// current conditions
+let weatherCond = list.weather.main;
+let cityName = city.name;
+let temp = list.main.temp;
+let humidity = list.main.humidity;
+let windSpeed = list.wind.speed;
+let icon = list.weather.icon;
+// UV index: 
+
+// forecast conditions
+let forecastWindSpeed = forecast.windSpeed;
+let forcastTemp = forecast.temperature.value;
+let forecastHumidity = forecast.humidity.unit;
+
+
 // display date in today's weather [working]
 let display = moment().format("dddd, MMMM Do");
 let date = $(".dateToday");
