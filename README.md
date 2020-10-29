@@ -1,22 +1,13 @@
-weather dashboard with form inputs
+# Weather Dashboard #
+This is a weather dashboard that gives you  current weather conditions along with a 5-day forecast. It has preset cities, but the user may search for their own cities as well. Cities that are searched for are easily accessed later, thanks to storage. 
 
-when i search for a city, presented with current and future conditions for that city, & city is added to the search history
+## Current Features ##
+- display today's date
 
-when i view current weather conditions for that city, presented with:
-city name,
-date
-icon representation of weather conditions
-temperature
-humidity
-wind speed
-UV index
-
-when i view UV index, presented with a color that indicates whether the conditions are favorable, moderate, or severe
-
-when i view future weather conditions for that city, presented with a 5-day forecast that displays:
-date
-icon representation of weather conditions
-temperature
-humidity
-
-when i click on a city in the search history, presented with current and future conditions for that city
+## Upcoming Features ##
+- display current conditions: date, icon, temp, humidity, wind speed, UV index
+- UV index gives a color based on air quality (favorable, moderate, severe)
+- 5 day forecast when city is viewed: date, icon, temp, humidity
+- display search history
+- when a city in search history is clicked, present user with current and future conditions
+- when page is opened, present user with last searched city forecast
