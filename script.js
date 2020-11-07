@@ -55,15 +55,15 @@ $(date).html(display);
 // })
 
 // current weather ajax call
-document.querySelector("#searchBtn").addEventListener("click", function() {
+document.getElementById("searchBtn").addEventListener("click", function(event) {
     // get current weather info
     console.log("hey")
-    $.ajax({
+    $.ajax ({
         url: currentQueryURL,
         method: "GET"
     }).then (function(response){
         // current conditions
-        // let weatherCond = list.weather.main;
+        let weatherCond = weather.main;
         // let cityName = city.name;
         // let temp = list.main.temp;
         // let humidity = list.main.humidity;
@@ -74,25 +74,27 @@ document.querySelector("#searchBtn").addEventListener("click", function() {
         //temperature.textContent = temp;
         //$("#tempToday").appendChild(temperature);
         console.log(response)
+        console.log(weatherCond)
         console.log(response.list.main.temp)
         //});
+        
     });
-
-})
+    event.preventDefault();
+});
 
 // forecast weather ajax call
-$.ajax({
-     url: forecastQueryURL,
-     method: "GET"
- }).then (function(response){
-//     // forecast conditions
-//     let forecastWindSpeed = forecast.windSpeed;
-//     let forecastTemp = forecast.temperature.value;
-//     let forecastHumidity = forecast.humidity.unit;
-//     let createWind = document.createElement("p");
-//     createWind.textContent = forecastWindSpeed;
-//     $("#windSpeed1").appendChild(createWind);
- });
+// $.ajax({
+//      url: forecastQueryURL,
+//      method: "GET"
+//  }).then (function(response){
+// //     // forecast conditions
+// //     let forecastWindSpeed = forecast.windSpeed;
+// //     let forecastTemp = forecast.temperature.value;
+// //     let forecastHumidity = forecast.humidity.unit;
+// //     let createWind = document.createElement("p");
+// //     createWind.textContent = forecastWindSpeed;
+// //     $("#windSpeed1").appendChild(createWind);
+//  });
 
 
 
