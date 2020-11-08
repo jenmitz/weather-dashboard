@@ -5,6 +5,9 @@ table {
     width: max-content;
     text-align: center;
 }
+p {
+    padding: 5px;
+}
 .btn-link {
     color: black;
 }

@@ -1,5 +1,5 @@
 /* // INCOMPLETE FEATURES //
-// current conditions: display date, icon, temp, humidity, wind speed, UV index
+// current conditions: UV index
 // UV index gives a color based on air quality (favorable, moderate, severe)
 // 5 day forecast when city is viewed: date, icon, temp, humidity
 // display search history
@@ -13,33 +13,112 @@
 
 */ // --------------------- //
 
-// // use imperial units (farhenheit) instead of default kelvin
-// let units = "&units=imperial";
-
 
 // API key
 let apiKey = "f674676e9306d3ea9c5d2d7245918d40";
 
-
-// input value (searched city)
-let city = $(".form-control");
+// search for city
+let city = document.getElementById("form").textContent; // form-control = search bar
 
 // forecast for searched city (currently using a pre-set city)
-let forecastQueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + "sacramento" + "&appid=" + apiKey;
+let forecastQueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=" + apiKey;
 
 // current weather for searched city (also usng a preset currently)
-let currentQueryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + "chicago" + "&appid=" + apiKey;
+let currentQueryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + apiKey;
 
+// let cities = ["Portland", "Sacramento", "Seattle", "Austin", "Orlando", "Chicago"];
 // presets
-let cities = ["Portland", "Kansas City", "Seattle", "Austin", "Orlando", "Chicago"];
+let portland = "https://api.openweathermap.org/data/2.5/weather?q=portland&units=imperial&appid=" + apiKey;
+let seattle = "https://api.openweathermap.org/data/2.5/weather?q=seattle&units=imperial&appid=" + apiKey;
+let austin = "https://api.openweathermap.org/data/2.5/weather?q=austin&units=imperial&appid=" + apiKey;
+let orlando = "https://api.openweathermap.org/data/2.5/weather?q=orlando&units=imperial&appid=" + apiKey;
+let chicago = "https://api.openweathermap.org/data/2.5/weather?q=chicago&units=imperial&appid=" + apiKey;
+let sacramento = "https://api.openweathermap.org/data/2.5/weather?q=sacramento&units=imperial&appid=" + apiKey;
 
-// make a forEach loop to iterate over cities array?
+// preset city ajax calls
+document.getElementById("portland").addEventListener("click", function () {
+    $.ajax ({
+        url: portland,
+        method: "GET"
+    }).then (function(response) {
+        document.getElementById("city").append("Portland")
+        document.getElementById("tempToday").append(response.main.temp)
+        document.getElementById("windToday").append(response.wind.speed + "mph")
+        document.getElementById("humidityToday").append(response.main.humidity + "%")
+    });
+});
+document.getElementById("seattle").addEventListener("click", function () {
+    $.ajax ({
+        url: seattle,
+        method: "GET"
+    }).then (function(response) {
+        document.getElementById("city").append("Seattle")
+        document.getElementById("tempToday").append(response.main.temp)
+        document.getElementById("windToday").append(response.wind.speed + "mph")
+        document.getElementById("humidityToday").append(response.main.humidity + "%")
+    });
+});
+document.getElementById("austin").addEventListener("click", function () {
+    $.ajax ({
+        url: austin,
+        method: "GET"
+    }).then (function(response) {
+        document.getElementById("city").append("Austin")
+        document.getElementById("tempToday").append(response.main.temp)
+        document.getElementById("windToday").append(response.wind.speed + "mph")
+        document.getElementById("humidityToday").append(response.main.humidity + "%")
+    });
+});
+document.getElementById("orlando").addEventListener("click", function () {
+    $.ajax ({
+        url: orlando,
+        method: "GET"
+    }).then (function(response) {
+        document.getElementById("city").append("Orlando")
+        document.getElementById("tempToday").append(response.main.temp)
+        document.getElementById("windToday").append(response.wind.speed + "mph")
+        document.getElementById("humidityToday").append(response.main.humidity + "%")
+    });
+});
+document.getElementById("chicago").addEventListener("click", function () {
+    $.ajax ({
+        url: chicago,
+        method: "GET"
+    }).then (function(response) {
+        document.getElementById("city").append("Chicago")
+        document.getElementById("tempToday").append(response.main.temp)
+        document.getElementById("windToday").append(response.wind.speed + "mph")
+        document.getElementById("humidityToday").append(response.main.humidity + "%")
+    });
+});
+document.getElementById("sacramento").addEventListener("click", function () {
+    $.ajax ({
+        url: sacramento,
+        method: "GET"
+    }).then (function(response) {
+        document.getElementById("city").append("Sacramento")
+        document.getElementById("tempToday").append(response.main.temp)
+        document.getElementById("windToday").append(response.wind.speed + "mph")
+        document.getElementById("humidityToday").append(response.main.humidity + "%")
+    });
+});
 
-// search for city
-let citySearch = $(".form-control").val().trim(); // form-control = search bar
 
-// search city button
-let searchBtn = $("#searchBtn");
+// WIP //
+
+let portlandForecast = "https://api.openweathermap.org/data/2.5/forecast?q=portland&units=imperial&appid=" + apiKey;
+
+document.getElementById("portland").addEventListener("click", function() {
+    $.ajax({
+        url: portlandForecast,
+        method: "GET"
+    }).then(function(response){
+        document.getElementById("day1").append(response.forecast.temperature.value + "degrees")
+    });
+});
+
+
+
 
 // display date in today's weather [working]
 let display = moment().format("dddd" + ", " + "MMMM Do YYYY" + ", " + "h:mm a");
@@ -47,15 +126,8 @@ let date = $(".dateToday");
 $(date).html(display);
 
 
-// $(".btn").addEventListener("click", function() {
-//     let city = $(".input");
-//     let currentQueryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
-//     console.log(currentQueryURL);
-
-// })
-
-// current weather ajax call
-document.getElementById("searchBtn").addEventListener("click", function(event) {
+// current weather ajax call, based on search - WIP
+searchBtn.addEventListener("click", function(event) {
     // get current weather info
     console.log("hey")
     $.ajax ({
@@ -63,82 +135,11 @@ document.getElementById("searchBtn").addEventListener("click", function(event) {
         method: "GET"
     }).then (function(response){
         // current conditions
-        let weatherCond = weather.main;
-        // let cityName = city.name;
-        // let temp = list.main.temp;
-        // let humidity = list.main.humidity;
-        // let windSpeed = list.wind.speed
-        // let icon = list.weather.icon;
-        //response.Search.forEach(function(item){
-        //let temperature = document.createElement("p");
-        //temperature.textContent = temp;
-        //$("#tempToday").appendChild(temperature);
-        console.log(response)
-        console.log(weatherCond)
+        console.log(response.main.temp)
         console.log(response.list.main.temp)
         //});
         
     });
+    // stop the page from refreshing on search
     event.preventDefault();
 });
-
-// forecast weather ajax call
-// $.ajax({
-//      url: forecastQueryURL,
-//      method: "GET"
-//  }).then (function(response){
-// //     // forecast conditions
-// //     let forecastWindSpeed = forecast.windSpeed;
-// //     let forecastTemp = forecast.temperature.value;
-// //     let forecastHumidity = forecast.humidity.unit;
-// //     let createWind = document.createElement("p");
-// //     createWind.textContent = forecastWindSpeed;
-// //     $("#windSpeed1").appendChild(createWind);
-//  });
-
-
-
-/////// WIP / Old / Experimentation /////////
-
-// function weatherInfo() {
-    // let city = $(this).attr("data");
-    // $.ajax({
-    //     url: currentQueryURL,
-    //     method: "GET"
-    // }).then (function(response) {
-    //     let location = "api.openweathermap.org/data/2.5/uvi?" + 
-    //         response.city.coord.lat + "&lon=" + response.city.coord.lon + "&appid=" + "2c6b4fcf87fab7effe688f8694416801" +
-    //     console.log(location);  
-    //     let result = response.city.name;
-    //     let cityName = $(result).text(name);
-    //     result.append(cityName);
-    //     console.log(location);
-
-    //     $("#searchBtn").on("click", function(event) {
-    //         event.preventDefault();
-    //         cities.push(citySearch);
-    //     });
-    // });  
-
-
-// // register button click
-// $(".btn").on("click", function() {
-//     console.log($(".btn") + "clicked")
-// }); 
-
-
-// // current conditions
-// let weatherCond = list.weather.main;
-// let cityName = city.name;
-// let temp = list.main.temp;
-// let humidity = list.main.humidity;
-// let windSpeed = list.wind.speed;
-// let icon = list.weather.icon;
-// UV index: 
-// let uvIndex = 
-
-
-// forecast conditions
-// let forecastWindSpeed = forecast.windSpeed;
-// let forecastTemp = forecast.temperature.value;
-// let forecastHumidity = forecast.humidity.unit;

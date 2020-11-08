@@ -21,7 +21,7 @@
                 <section class="col-lg-3 p-3 m-2 ml-4">
                     <h5>Search for a City:</h5>
                     <form class="form-inline">
-                        <input class="form-control" type="text" placeholder="Search">
+                        <input class="form-control" id="form" type="text" placeholder="Search">
                         <button class="btn btn-secondary" type="submit" id="searchBtn">
                             <i class="fa fa-search"></i>
                         </button>
@@ -31,32 +31,32 @@
                         <tbody>
                             <tr>
                                 <th scope="row">
-                                    <button class="btn btn-link">Portland, OR</button>
+                                    <button class="btn btn-link" id="portland">Portland, OR</button>
                                 </th>
                             </tr>
                             <tr>
                                 <th scope="row">
-                                    <button class="btn btn-link">Kansas City, MO</button>
+                                    <button class="btn btn-link" id="sacramento">Sacramento, CA</button>
                                 </th>
                             </tr>
                             <tr>
                                 <th scope="row">
-                                    <button class="btn btn-link">Seattle, WA</button>
+                                    <button class="btn btn-link" id="seattle">Seattle, WA</button>
                                 </th>
                             </tr>
                             <tr>
                                 <th scope="row">
-                                    <button class="btn btn-link">Austin, TX</button>
+                                    <button class="btn btn-link" id="austin">Austin, TX</button>
                                 </th>
                             </tr>
                             <tr>
                                 <th scope="row">
-                                    <button class="btn btn-link">Orlando, FL</button>
+                                    <button class="btn btn-link" id="orlando">Orlando, FL</button>
                                 </th>
                             </tr>
                             <tr>
                                 <th scope="row">
-                                    <button class="btn btn-link">Chicago, IL</button>
+                                    <button class="btn btn-link" id="chicago">Chicago, IL</button>
                                 </th>
                             </tr>
                         </tbody>
@@ -68,13 +68,13 @@
                     <div class="container-fluid">
                         <div class="row p-2">
                             <div id="today">
-                                <h2 class="city p-2">Placeholder</h2>
-                                <h5 class="dateToday p-2"></h5>
-                                <img class="icon">
-                                <p class="tempToday"></p>
-                                <p class="humidityToday"></p>
-                                <p class="windToday"></p>
-                                <p class="UVToday"></p>
+                                <h2 class="p-2" id="city"></h2>
+                                <h5 id="dateToday" class="p-2"></h5>
+                                <div id="icon"></div>
+                                <p id="tempToday">Temperature: </p>
+                                <p id="humidityToday">Humidity: </p>
+                                <p id="windToday">Wind Speed: </p>
+                                <p id="UVToday">UV Index: </p>
                             </div>
                         </div>
                     </div>
