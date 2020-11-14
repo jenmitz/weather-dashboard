@@ -3,9 +3,12 @@ This is a weather dashboard that gives you  current weather conditions along wit
 
 ## Current Features ##
 - display today's date
+- display current conditions: temp, humidity, wind speed
+- can search for a city and get back weather conditions
+- has preset cities for the user to click on
 
 ## Upcoming Features ##
-- display current conditions: date, icon, temp, humidity, wind speed, UV index
+- display current conditions: icon, UV index
 - UV index gives a color based on air quality (favorable, moderate, severe)
 - 5 day forecast when city is viewed: date, icon, temp, humidity
 - display search history
